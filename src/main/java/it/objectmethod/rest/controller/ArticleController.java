@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,8 +20,8 @@ public class ArticleController {
 
 	@Autowired
 	private ArticleDao articleDao;
-
-	@GetMapping("/api/articles/get")
+	                         // list quando faccio il get di una lista search quando cerco in base ad un filtro
+	@GetMapping("/api/articles/list") 
 	public List<Article> getArticles() {
 		List<Article> listArticle = new ArrayList<Article>();
 		listArticle = articleDao.getArticles();
@@ -30,7 +29,7 @@ public class ArticleController {
 		return listArticle;
 	}
 
-	@PostMapping("/api/article/by-code")
+	@GetMapping("/api/article/by-code")
 	public Article formView(@RequestParam(value = "getCod", required = false) String getCod) {
 		Article article = null;
 

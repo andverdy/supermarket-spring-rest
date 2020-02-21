@@ -15,7 +15,7 @@ public class IvaController {
 	@Autowired
 	private IvaDao ivaDao;
 
-	@GetMapping("/api/iva/get")
+	@GetMapping("/api/iva/list")
 	public List<Iva> getIvaList() {
 
 		List<Iva> listIva = ivaDao.getIva();

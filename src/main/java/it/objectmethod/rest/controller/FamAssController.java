@@ -15,7 +15,7 @@ public class FamAssController {
 	@Autowired
 	private FamAssortDao famAssDao;
 
-	@GetMapping("/api/famassort/get")
+	@GetMapping("/api/famassort/list")
 	public List<FamAssort> getFamAss() {
 
 		List<FamAssort> listFamAss = famAssDao.getFamAssort();
